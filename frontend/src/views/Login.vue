@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     login() {
-      fetch(`${window.location.origin}/loginuser/`, {
+      fetch(`${window.location.origin}/api/loginuser/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

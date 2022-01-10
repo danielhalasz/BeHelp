@@ -43,7 +43,18 @@ app.use(
     },
   })
 );
-app.use(history());
+app.use(
+  history({
+    rewrites: [
+      {
+        from: /^\/api\/.*$/,
+        to: function (context) {
+          return context.parsedUrl.path;
+        },
+      },
+    ],
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -53,11 +64,11 @@ app.get("/", (req, res) => {
 });
 
 //routes
-app.use("/email", require("./routes/email.js"));
-app.use("/loginuser", require("./routes/login.js"));
-app.use("/registeruser", require("./routes/register.js"));
-app.use("/refreshtoken", refreshToken);
-app.use("/users", require("./routes/users.js"));
+app.use("/api/email", require("./routes/email.js"));
+app.use("/api/loginuser", require("./routes/login.js"));
+app.use("/api/registeruser", require("./routes/register.js"));
+app.use("/api/refreshtoken", refreshToken);
+app.use("/api/users", require("./routes/users.js"));
 app.use("*", (req, res) => {
   res.status(404).json({ message: "Not Found" });
 });
