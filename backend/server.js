@@ -67,8 +67,8 @@ app.get("/", (req, res) => {
 
 //routes
 app.use("/api/email", require("./routes/email.js"));
-app.use("/api/loginuser", require("./routes/login.js"));
-app.use("/api/registeruser", require("./routes/register.js"));
+app.use("/api/login", require("./routes/login.js"));
+app.use("/api/register", require("./routes/register.js"));
 app.use("/api/refreshtoken", refreshToken);
 app.use("/api/users", require("./routes/users.js"));
 app.use("*", (req, res) => {
