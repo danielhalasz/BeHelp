@@ -10,8 +10,8 @@ export default {
     };
   },
   methods: {
-    login() {
-      fetch(`${window.location.origin}/api/loginuser/`, {
+    async login() {
+      await fetch(`${window.location}/api/loginuser/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
