@@ -12,7 +12,7 @@ export default {
   methods: {
     async login() {
       try {
-        const res = await fetch(`${window.location.origin}/api/loginuser/`, {
+        const res = await fetch(`${window.location.origin}/api/login/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
