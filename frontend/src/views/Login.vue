@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     async login() {
-      await fetch(`${window.location}/api/loginuser/`, {
+      await fetch(`${window.location.origin}/api/loginuser/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

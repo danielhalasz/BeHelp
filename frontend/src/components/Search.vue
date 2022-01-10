@@ -64,7 +64,7 @@ export default {
           })
         );
 
-        const res = await fetch(`${window.location}/api/users/`, {
+        const res = await fetch(`${window.location.origin}/api/users/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
