@@ -43,20 +43,20 @@ app.use(
     },
   })
 );
-app.use(
-  history({
-    rewrites: [
-      {
-        from: /^\/api\/.*$/,
-        to: function (context) {
-          console.log("context", context);
-          return context.parsedUrl.path;
-        },
-      },
-    ],
-    verbose: true,
-  })
-);
+// app.use(
+//   history({
+//     rewrites: [
+//       {
+//         from: /^\/api\/.*$/,
+//         to: function (context) {
+//           console.log("context", context);
+//           return context.parsedUrl.path;
+//         },
+//       },
+//     ],
+//     verbose: true,
+//   })
+// );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
