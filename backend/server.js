@@ -69,7 +69,7 @@ app.use("/api/loginuser", require("./routes/login.js"));
 app.use("/api/registeruser", require("./routes/register.js"));
 app.use("/api/refreshtoken", refreshToken);
 app.use("/api/users", require("./routes/users.js"));
-app.use("*", (req, res) => {
+app.use("/api/*", (req, res) => {
   res.status(404).json({ message: "Not Found" });
 });
 
