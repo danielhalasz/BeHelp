@@ -11,7 +11,8 @@ export default {
   },
   methods: {
     async login() {
-      await fetch(`${window.location.origin}/api/loginuser/`, {
+      try {
+        const res = await fetch(`${window.location.origin}/api/loginuser/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -19,36 +20,27 @@ export default {
           pass: this.password,
         },
       })
-        .then((res) => {
-          localStorage.setItem(
-            "token",
-            res.headers.get("authorization").split(" ")[1]
-          );
+      localStorage.setItem("token", res.headers.get("authorization").split(" ")[1]);
           this.$store.commit("loggedIn");
           this.$store.commit(
             "readUser",
             VueJwtDecode.decode(localStorage.getItem("token"))
           );
-        })
-        .then(() => {
           this.$notify({
             title: "You have successfully logged in!",
             type: "success",
           });
-        })
-        .then(() => {
           this.$router.push("/");
-        })
-        .catch((err) => {
-          console.log(err);
-          this.$notify({
+      } catch (error) {
+        console.log(error);
+            this.$notify({
             title: "Incorrect email or password!",
             type: "error",
           });
-        });
-    },
+
+      }
   },
-};
+}
 </script>
 
 <template>
