@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     login() {
-      fetch("/login/", {
+      fetch("/loginuser/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

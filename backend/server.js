@@ -54,8 +54,8 @@ app.get("/", (req, res) => {
 
 //routes
 app.use("/email", require("./routes/email.js"));
-app.use("/login", require("./routes/login.js"));
-app.use("/register", require("./routes/register.js"));
+app.use("/loginuser", require("./routes/login.js"));
+app.use("/registeruser", require("./routes/register.js"));
 app.use("/refreshtoken", refreshToken);
 app.use("/users", require("./routes/users.js"));
 app.use("*", (req, res) => {
