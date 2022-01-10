@@ -26,7 +26,13 @@ app.use(
           "'unsafe-inline'",
           "'unsafe-eval'",
         ],
-        "img-src": ["'self'", "data:", "'unsafe-inline'", "'unsafe-eval'"],
+        "img-src": [
+          "'self'",
+          "res.cloudinary.com",
+          "data:",
+          "'unsafe-inline'",
+          "'unsafe-eval'",
+        ],
         "font-src": [
           "'self'",
           "fonts.gstatic.com",
